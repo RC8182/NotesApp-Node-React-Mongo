@@ -1,17 +1,21 @@
 import React from 'react';
 import {
   ChakraProvider,
-  Box,
-  theme,
+
+  Flex,
 } from '@chakra-ui/react';
+
+import './css/index.css'
+import NavBar from './components/Navbar/NavBar'
+
 
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        
-      </Box>
+    <ChakraProvider >
+      <Flex id='container' >
+        <NavBar />
+      </Flex>
     </ChakraProvider>
   );
 }
