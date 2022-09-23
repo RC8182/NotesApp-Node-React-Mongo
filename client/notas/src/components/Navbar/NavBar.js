@@ -15,7 +15,7 @@ import {
 import { ColorModeSwitcher } from '../ColorMode/ColorModeSwitcher';
 
 
-const Links = ['Lidl', 'Mercadona', 'Aldi'];
+const Links = ['New Note', 'All Notes'];
 
 const NavLink = ({ children }) => (
   <Link
@@ -26,7 +26,7 @@ const NavLink = ({ children }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={'http://localhost:3000/'}>
     {children}
   </Link>
 );
