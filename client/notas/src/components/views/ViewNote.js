@@ -1,5 +1,4 @@
 
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
     Box,
     Button,
@@ -44,7 +43,7 @@ import {
                   <Link href='https://appnotes8182.netlify.app/' isExternal>
                     New note  
                   </Link>
-                  
+
                   <VStack spacing={5}>
   
                       <h1
