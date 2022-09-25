@@ -23,7 +23,7 @@ function App() {
 
         <Routes>
         <Route path='/' element={<CreateNotes />} />
-        <Route path='/api/all-notes' element={<Notes />} />
+        <Route path='https://mynotesrc8182.netlify.app/api/all-notes' element={<Notes />} />
         </Routes> 
       
         </Flex>

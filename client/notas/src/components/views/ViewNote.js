@@ -13,7 +13,7 @@ import {
     const title= props.title;
     const description=props.description;
     const id= props.id;
-    const url='http://localhost:4000/api/all-notes/delete/'+ id +'?_method=DELETE';
+    const url='https://my-rc-notes.herokuapp.com/api/all-notes/delete/'+ id +'?_method=DELETE';
 
     return (
   
