@@ -3,7 +3,6 @@ import {
   Flex,
   Avatar,
   HStack,
-  Link,
   Button,
   Menu,
   MenuButton,
@@ -13,40 +12,31 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorMode/ColorModeSwitcher';
+import { NavLinks } from './NavLinks';
 
 
-const Links = ['New Note', 'All Notes'];
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'http://localhost:3000/'}>
-    {children}
-  </Link>
-);
+
 
 export default function NavBar() {
-
-
+  const Links = [{title:'New Note', href: 'http://localhost:3000/'},
+                 {title:'All Notes', href: 'http://localhost:3000/api/all-notes'}
+                ];
   return (
     <>
       <Box bg={useColorModeValue('blue.100', 'red.900')} px={4} width={'full'}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
 
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Mis Notas</Box>
+            <Box>AppNotes</Box>
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+
+                <NavLinks title={link.title} href={link.href} />
+
               ))}
             </HStack>
           </HStack>
@@ -61,15 +51,15 @@ export default function NavBar() {
                 <Avatar
                   size={'sm'}
                   src={
-                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                    'https://pbs.twimg.com/profile_images/1455239043424440323/FTDrXsxj_400x400.jpg'
                   }
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
+                <MenuItem>RC8182</MenuItem>
+                <MenuItem>Edit Profile</MenuItem>
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <MenuItem>Log Out</MenuItem>
               </MenuList>
             </Menu>
             <ColorModeSwitcher />

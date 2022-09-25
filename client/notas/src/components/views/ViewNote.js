@@ -44,7 +44,7 @@ import {
                       color={useColorModeValue( 'white', 'black')}
                       >{title}
                       </h1>
-                      <Textarea isDisabled
+                      <Textarea isReadOnly
                         value={description}
                         name="note"
                         rows={10}
