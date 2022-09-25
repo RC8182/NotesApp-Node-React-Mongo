@@ -49,7 +49,7 @@ export default function CreateNotes() {
                       <Input 
                       type="text" 
                       name="title"
-                      placeholder="Your Note"
+                      placeholder="Label Note"
                       _placeholder={{'color': useColorModeValue( 'white', 'black')}} 
                       borderColor={useColorModeValue( 'white', 'black')} />
                     </InputGroup>
@@ -65,7 +65,7 @@ export default function CreateNotes() {
                     
                     <Textarea
                       name="description"
-                      placeholder="Your Message"
+                      placeholder="Type the Note"
                       _placeholder={{'color': useColorModeValue( 'white', 'black')}} 
                       rows={6}
                       resize="none"
