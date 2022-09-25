@@ -10,6 +10,7 @@ import {
   MenuItem,
   MenuDivider,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorMode/ColorModeSwitcher';
 import { NavLinks } from './NavLinks';
@@ -57,7 +58,12 @@ export default function NavBar() {
               </MenuButton>
               <MenuList>
                 <MenuItem>RC8182</MenuItem>
-                <MenuItem>Edit Profile</MenuItem>
+                <Link href='https://appnotes8182.netlify.app/'>
+                <MenuItem>New note</MenuItem>
+                </Link>
+                <Link href='https://appnotes8182.netlify.app/api/all-notes'>
+                <MenuItem>All note</MenuItem>
+                </Link>
                 <MenuDivider />
                 <MenuItem>Log Out</MenuItem>
               </MenuList>
