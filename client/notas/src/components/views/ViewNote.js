@@ -1,7 +1,9 @@
 
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
     Box,
     Button,
+    Link,
     Stack,
     Textarea,
     useColorModeValue,
@@ -28,7 +30,7 @@ import {
                 spacing={{ base: 4, md: 8, lg: 20 }}
                 direction={{ base: 'column', md: 'row' }}>
   
-  
+                
                 <Box
                   bg={useColorModeValue('black', 'gray.100')}
                   borderRadius="lg"
@@ -38,6 +40,11 @@ import {
   
                 <form action={url} method='POST'>
                 <input type={'hidden'} name='_method' value={'DELETE'} />
+
+                  <Link href='https://appnotes8182.netlify.app/' isExternal>
+                    New note  
+                  </Link>
+                  
                   <VStack spacing={5}>
   
                       <h1
@@ -68,6 +75,7 @@ import {
   
    
                   </VStack>
+
                   </form>
                 </Box>
               </Stack>

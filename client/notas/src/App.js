@@ -8,11 +8,6 @@ import NavBar from './components/Navbar/NavBar'
 import CreateNotes from './components/views/CreateNote';
 import { Notes } from './components/views/Notes';
 
-
-
-
-
-
 function App() {
   return (
     <ChakraProvider >
