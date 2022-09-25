@@ -40,10 +40,6 @@ import {
                 <form action={url} method='POST'>
                 <input type={'hidden'} name='_method' value={'DELETE'} />
 
-                  <Link href='https://appnotes8182.netlify.app/' isExternal>
-                    New note  
-                  </Link>
-
                   <VStack spacing={5}>
   
                       <h1

@@ -59,10 +59,10 @@ export default function NavBar() {
               <MenuList>
                 <MenuItem>RC8182</MenuItem>
                 <Link href='https://appnotes8182.netlify.app/'>
-                <MenuItem>New note</MenuItem>
+                <MenuItem>New Note</MenuItem>
                 </Link>
                 <Link href='https://appnotes8182.netlify.app/api/all-notes'>
-                <MenuItem>All note</MenuItem>
+                <MenuItem>All Notes</MenuItem>
                 </Link>
                 <MenuDivider />
                 <MenuItem>Log Out</MenuItem>
