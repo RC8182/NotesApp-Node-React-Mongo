@@ -36,7 +36,7 @@ export default function CreateNotes() {
                 color={useColorModeValue( 'white', 'black')}
                 shadow="base">
 
-              <form action='http://localhost:4000/api/new-note' method='POST'>
+              <form action='https://my-rc-notes.herokuapp.com/api/new-note' method='POST'>
                 <VStack spacing={5}>
                  
                   <FormControl isRequired borderColor={useColorModeValue( 'white', 'black')}>

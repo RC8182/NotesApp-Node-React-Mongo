@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ViewNotes from './ViewNote';
 
 export const Notes = () => {
-    const api='http://localhost:4000/api/all-notes';
+    const api='https://my-rc-notes.herokuapp.com/api/all-notes';
     const [notes, setnotes] = useState();
 
     const getApi= async ()=>{
