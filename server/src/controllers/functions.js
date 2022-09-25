@@ -14,14 +14,14 @@ methods.newNote= async (req, res)=>{
     console.log(post)
     await post.save();
     res.writeHead(301, {
-        Location: `https://mynotesrc8182.netlify.app/api/all-notes`
+        Location: `https://mynotes8182.netlify.app/api/all-notes`
       }).end();
 
 }
 
 methods.allNotes= async (req, res)=>{
     const notes= await noteSchema.find();
-    res.set('Access-Control-Allow-Origin', 'https://mynotesrc8182.netlify.app');
+    res.set('Access-Control-Allow-Origin', 'https://mynotes8182.netlify.app');
     res.send(notes);
 
 }
@@ -32,7 +32,7 @@ methods.deleteNote= async (req, res)=>{
         await noteSchema.findByIdAndDelete(req.params._id);
         res.status(200);
         res.writeHead(301, {
-          Location: `https://mynotesrc8182.netlify.app/api/all-notes`
+          Location: `https://mynotes8182.netlify.app/api/all-notes`
         }).end();
    } catch{
         res.status(404);
