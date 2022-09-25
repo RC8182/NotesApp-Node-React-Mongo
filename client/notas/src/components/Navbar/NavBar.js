@@ -19,8 +19,8 @@ import { NavLinks } from './NavLinks';
 
 
 export default function NavBar() {
-  const Links = [{title:'New Note', href: 'http://localhost:3000/'},
-                 {title:'All Notes', href: 'http://localhost:3000/api/all-notes'}
+  const Links = [{title:'New Note', href: 'https://mynotesrc8182.netlify.app/'},
+                 {title:'All Notes', href: 'https://mynotesrc8182.netlify.app/api/all-notes'}
                 ];
   return (
     <>
