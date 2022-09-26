@@ -5,8 +5,9 @@ import {
 } from '@chakra-ui/react';  
 import {Route, BrowserRouter,Routes} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar'
-import CreateNotes from './components/views/CreateNote';
-import { Notes } from './components/views/Notes';
+import CreateNotes from './views/CreateNote';
+import { Notes } from './views/Notes';
+import UpdateNote from './views/UpdateNote';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
         <Route path='/' element={<CreateNotes />} />
         <Route path='/api/all-notes' element={<Notes />} />
+        <Route path='/api/update' element={<UpdateNote />} />
         </Routes> 
       
         </Flex>

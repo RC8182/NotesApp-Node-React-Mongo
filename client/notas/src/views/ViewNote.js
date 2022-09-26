@@ -1,19 +1,23 @@
-
+import { EditIcon } from '@chakra-ui/icons'
 import {
     Box,
     Button,
+    Icon,
+    Link,
     Stack,
     Textarea,
     useColorModeValue,
     VStack,
   } from '@chakra-ui/react';
   import React from 'react';
+
   
   export default function ViewNotes(props) {
     const title= props.title;
     const description=props.description;
     const id= props.id;
     const url='https://my-rc-notes.herokuapp.com/api/all-notes/delete/'+ id +'?_method=DELETE';
+    const update='/api/update/:' + id;
 
     return (
   
@@ -28,14 +32,18 @@ import {
                 spacing={{ base: 4, md: 8, lg: 20 }}
                 direction={{ base: 'column', md: 'row' }}>
   
-                
+
                 <Box
                   bg={useColorModeValue('black', 'gray.100')}
                   borderRadius="lg"
                   p={8}
                   color={useColorModeValue( 'white', 'black')}
                   shadow="base">
-  
+
+                <Link href={update}>
+                  <Icon as={ EditIcon } w={6} h={6} />
+                </Link>
+
                 <form action={url} method='POST'>
                 <input type={'hidden'} name='_method' value={'DELETE'} />
 
@@ -53,7 +61,6 @@ import {
                         borderColor={useColorModeValue( 'white', 'gray.800')}
                         color={useColorModeValue( 'white', 'black')}
                       />
-  
                     <Button
                     width={'full'}
                       type='submit'

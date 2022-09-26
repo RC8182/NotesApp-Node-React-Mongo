@@ -42,7 +42,7 @@ export default function CreateNotes() {
                   <FormControl isRequired borderColor={useColorModeValue( 'white', 'black')}>
 
                     <FormLabel
-                    color={useColorModeValue( 'white', 'black')}>Label</FormLabel>
+                    color={useColorModeValue( 'white', 'black')}>Task</FormLabel>
 
                     <InputGroup>
 
@@ -61,7 +61,7 @@ export default function CreateNotes() {
 
                     <FormLabel 
                     color={useColorModeValue( 'white', 'black')}
-                    >Nota</FormLabel>
+                    >Note</FormLabel>
                     
                     <Textarea
                       name="description"
