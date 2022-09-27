@@ -34,9 +34,24 @@ methods.deleteNote= async (req, res)=>{
         res.writeHead(301, {
           Location: `https://appnotes8182.netlify.app/api/all-notes`
         }).end();
+        
    } catch{
         res.status(404);
         console.log("ERROR");
    }
+}
+
+methods.updateNote= async (req, res)=>{
+  const id = req.params._id;
+  const {title, description}= req.body;
+  const update= await noteSchema.findOne({
+    _id: id,
+  });
+  update.title=title;
+  update.description=description;
+      await update.save();
+  res.status(200);
+  res.writeHead(301,{Location: 'https://appnotes8182.netlify.app/api/all-notes'}).end();    
+
 }
 module.exports=methods;

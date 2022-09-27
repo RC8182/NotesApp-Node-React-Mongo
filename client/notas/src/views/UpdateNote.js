@@ -11,9 +11,12 @@ import {
     VStack,
   } from '@chakra-ui/react';
   import React from 'react';
+import { useParams } from 'react-router-dom';
   
   export default function UpdateNote() {
-  
+    const {id}= useParams();
+    const update='https://my-rc-notes.herokuapp.com/api/update/' + id +'?_method=PUT';
+    console.log(id); 
   
     return (
   
@@ -36,7 +39,8 @@ import {
                   color={useColorModeValue( 'white', 'black')}
                   shadow="base">
   
-                <form action='https://my-rc-notes.herokuapp.com/api/new-note' method='POST'>
+                <form action={update} method='POST'>
+                <input type={'hidden'} name='_method' value={'PUT'} />
                   <VStack spacing={5}>
                    
                     <FormControl isRequired borderColor={useColorModeValue( 'white', 'black')}>
@@ -63,7 +67,7 @@ import {
                       >Note</FormLabel>
                       
                       <Textarea
-                        name="description"
+                        name='description'
                         defaultValue={'data to update'}
                         rows={6}
                         resize="none"
