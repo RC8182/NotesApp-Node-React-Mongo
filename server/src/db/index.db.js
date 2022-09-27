@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose= require('mongoose');
-const DB_URL='mongodb+srv://javier:Z1pRHtlE92CsGqu3@cluster0.pfqrpmy.mongodb.net/note';
+const DB_URL='XXXXXXXXXX';
 
 mongoose.connect(DB_URL);
 mongoose.connection.on('error', (error)=>{
