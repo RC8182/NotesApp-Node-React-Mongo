@@ -23,7 +23,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<CreateNotes />} />
                 <Route path='/api/all-notes' element={<Notes />} />
-                <Route path='/api/update' element={<UpdateNote />} />
+                <Route path='/api/update/:id' element={<UpdateNote />} />
               </Routes> 
             </Flex>
           </BrowserRouter>

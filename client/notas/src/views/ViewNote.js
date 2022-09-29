@@ -16,7 +16,7 @@ import {
     const title= props.title;
     const description=props.description;
     const id= props.id;
-    const url='https://my-rc-notes.herokuapp.com/api/all-notes/delete/'+ id +'?_method=DELETE';
+    const url= process.env.REACT_APP_SERVER_URL +'/api/all-notes/delete/'+ id +'?_method=DELETE';
     const update='/api/update/' + id;
 
     return (

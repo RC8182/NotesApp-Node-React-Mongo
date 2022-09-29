@@ -10,13 +10,29 @@ import {
     useColorModeValue,
     VStack,
   } from '@chakra-ui/react';
-  import React from 'react';
+
+  import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { NoteContext } from '../components/Context/NotesProvider';
+
+
   
   export default function UpdateNote() {
+
+
+    
+    const {noteId, getApiNoteByID} = useContext(NoteContext);
     const {id}= useParams();
-    const update='https://my-rc-notes.herokuapp.com/api/update/' + id +'?_method=PUT';
-    console.log(id); 
+
+    getApiNoteByID(id); 
+    console.log();
+
+    const title= noteId?.title;
+    const description=noteId?.description;
+
+
+    const update= process.env.REACT_APP_SERVER_URL +'/api/update/' + id +'?_method=PUT';
+
   
     return (
   
@@ -53,7 +69,7 @@ import { useParams } from 'react-router-dom';
                         <Input 
                         type="text" 
                         name="title"
-                        defaultValue={'lavel to update'}
+                        defaultValue={title}
                         borderColor={useColorModeValue( 'white', 'black')} />
                       </InputGroup>
                     </FormControl>
@@ -67,8 +83,8 @@ import { useParams } from 'react-router-dom';
                       >Note</FormLabel>
                       
                       <Textarea
-                        name='description'
-                        defaultValue={'data to update'}
+                        name={'description'}
+                        defaultValue={description}
                         rows={6}
                         resize="none"
                         borderColor={useColorModeValue( 'white', 'gray.800')}
@@ -86,7 +102,7 @@ import { useParams } from 'react-router-dom';
                         bg: 'green.500',
                       }}
                     >
-                      Update Note
+                      Edit
                     </Button>
   
    

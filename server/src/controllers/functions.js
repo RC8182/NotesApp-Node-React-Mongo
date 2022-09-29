@@ -1,5 +1,7 @@
+require('dotenv').config();
+const SERVER_LOCAL_HOST= process.env.SERVER_LOCAL_HOST;
+const CLIENT_LOCAL_HOST= process.env.CLIENT_LOCAL_HOST;
 const noteSchema = require("../models/note.schema");
-
 const methods={};
 methods.home= (req, res)=>{
     res.send('Ingresa una nota!')
@@ -14,14 +16,14 @@ methods.newNote= async (req, res)=>{
     console.log(post)
     await post.save();
     res.writeHead(301, {
-        Location: `https://appnotes8182.netlify.app/api/all-notes`
+        Location: CLIENT_LOCAL_HOST +'/api/all-notes'
       }).end();
 
 }
 
 methods.allNotes= async (req, res)=>{
     const notes= await noteSchema.find();
-    res.set('Access-Control-Allow-Origin', 'https://appnotes8182.netlify.app');
+    res.set('Access-Control-Allow-Origin', CLIENT_LOCAL_HOST);
     res.send(notes);
 
 }
@@ -32,7 +34,7 @@ methods.deleteNote= async (req, res)=>{
         await noteSchema.findByIdAndDelete(req.params._id);
         res.status(200);
         res.writeHead(301, {
-          Location: `https://appnotes8182.netlify.app/api/all-notes`
+          Location: CLIENT_LOCAL_HOST +'/api/all-notes'
         }).end();
         
    } catch{
@@ -51,7 +53,15 @@ methods.updateNote= async (req, res)=>{
   update.description=description;
       await update.save();
   res.status(200);
-  res.writeHead(301,{Location: 'https://appnotes8182.netlify.app/api/all-notes'}).end();    
+  res.writeHead(301,{Location: CLIENT_LOCAL_HOST +'/api/all-notes'}).end();    
+
+}
+
+methods.findByID= async(req, res)=>{
+  id= req.params;
+  res.set('Access-Control-Allow-Origin', CLIENT_LOCAL_HOST);
+  const note= await noteSchema.findOne({_id:id})
+  res.send(note);
 
 }
 module.exports=methods;

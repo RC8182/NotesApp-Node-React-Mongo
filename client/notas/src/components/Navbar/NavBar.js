@@ -20,9 +20,11 @@ import { NavLinks } from './NavLinks';
 
 
 export default function NavBar() {
-  const Links = [{title:'New Note', href: 'https://appnotes8182.netlify.app/'},
-                 {title:'All Notes', href: 'https://appnotes8182.netlify.app/api/all-notes'}
+  const clienteURL= process.env.REACT_APP_CLIENT_URL;
+  const Links = [{title:'New Note', href: clienteURL },
+                 {title:'All Notes', href: clienteURL +'/api/all-notes'}
                 ];
+
   return (
     <>
       <Box bg={useColorModeValue('blue.100', 'red.900')} px={4} width={'full'}>
@@ -36,7 +38,7 @@ export default function NavBar() {
               display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
 
-                <NavLinks title={link.title} href={link.href} />
+                <NavLinks key={link.id} title={link.title} href={link.href} />
 
               ))}
             </HStack>
@@ -58,10 +60,10 @@ export default function NavBar() {
               </MenuButton>
               <MenuList>
                 <MenuItem>RC8182</MenuItem>
-                <Link href='https://appnotes8182.netlify.app/'>
+                <Link href={process.env.REACT_APP_CLIENT_URL}>
                 <MenuItem>New Note</MenuItem>
                 </Link>
-                <Link href='https://appnotes8182.netlify.app/api/all-notes'>
+                <Link href={clienteURL +'/api/all-notes'}>
                 <MenuItem>All Notes</MenuItem>
                 </Link>
                 <MenuDivider />

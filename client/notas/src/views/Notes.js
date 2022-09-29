@@ -4,9 +4,8 @@ import { NoteContext } from '../components/Context/NotesProvider';
 import ViewNotes from './ViewNote';
 
 export const Notes = () => {
-const {note, getApi} = useContext(NoteContext);
+const {note} = useContext(NoteContext);
 
-getApi();
 
     return (
         <HStack flexWrap={'wrap'} >

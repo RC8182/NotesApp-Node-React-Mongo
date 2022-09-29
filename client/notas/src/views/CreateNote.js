@@ -12,9 +12,10 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 
+
 export default function CreateNotes() {
 
-
+const linkAction= process.env.REACT_APP_SERVER_URL + '/api/new-note';
   return (
 
       <Box
@@ -36,7 +37,7 @@ export default function CreateNotes() {
                 color={useColorModeValue( 'white', 'black')}
                 shadow="base">
 
-              <form action='https://my-rc-notes.herokuapp.com/api/new-note' method='POST'>
+              <form action= {linkAction} method='POST'>
                 <VStack spacing={5}>
                  
                   <FormControl isRequired borderColor={useColorModeValue( 'white', 'black')}>
