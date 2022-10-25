@@ -13,12 +13,13 @@ import {
 
   
   export default function ViewNotes(props) {
+    const userId= props.user;
     const title= props.title;
     const description=props.description;
     const id= props.id;
-    const url= process.env.REACT_APP_SERVER_URL +'/api/all-notes/delete/'+ id +'?_method=DELETE';
-    const update='/api/update/' + id;
-
+    const del= process.env.REACT_APP_SERVER_URL +'/api/'+ userId +'/all-notes/delete/'+ id +'?_method=DELETE';
+    const update='/update/' + id;
+    
     return (
   
         <Box
@@ -44,7 +45,7 @@ import {
                   <Icon as={ EditIcon } w={6} h={6} />
                 </Link>
 
-                <form action={url} method='POST'>
+                <form action={del} method='POST'>
                 <input type={'hidden'} name='_method' value={'DELETE'} />
 
                   <VStack spacing={5}>

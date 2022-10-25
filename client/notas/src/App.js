@@ -5,30 +5,33 @@ import {
 } from '@chakra-ui/react';  
 import {Route, BrowserRouter,Routes} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar'
-import CreateNotes from './views/CreateNote';
-import { Notes } from './views/Notes';
+
 import UpdateNote from './views/UpdateNote';
 import { NotesProvider } from './components/Context/NotesProvider';
-//import { UserProvider } from './components/Context/UserProvider';
+import { AuthProvider } from './components/Context/AuthProvider';
+import { Home } from './views/Home';
+import { Dashboard } from './views/Dashboard';
+import Login from './views/Login';
 
 
 function App() {
   return (
     <ChakraProvider >
-      {/*<UserProvider>*/}
-        <NotesProvider>
-          <BrowserRouter>
-            <Flex  justifyContent={'center'} flexWrap={'wrap'}>
-              <NavBar />
-              <Routes>
-                <Route path='/' element={<CreateNotes />} />
-                <Route path='/api/all-notes' element={<Notes />} />
-                <Route path='/api/update/:id' element={<UpdateNote />} />
-              </Routes> 
-            </Flex>
-          </BrowserRouter>
+      <AuthProvider>
+         <NotesProvider>
+            <BrowserRouter>
+              <Flex  justifyContent={'center'} flexWrap={'wrap'}>
+                <NavBar />
+                <Routes>
+                  <Route path='/'  element={<Home/>} />
+                  <Route path='/login'  element={<Login />} />
+                  <Route path='/dashboard'  element={<Dashboard />} />
+                  <Route path='/update/:noteId' element={<UpdateNote />} />
+                </Routes> 
+              </Flex>
+            </BrowserRouter>
         </NotesProvider>
-      {/*</UserProvider>*/}
+      </AuthProvider>  
     </ChakraProvider>
   );
 }

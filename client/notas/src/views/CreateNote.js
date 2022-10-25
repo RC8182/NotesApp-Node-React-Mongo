@@ -10,12 +10,24 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import { useContext } from 'react';
+import { NoteContext } from '../components/Context/NotesProvider';
+
+
 
 
 export default function CreateNotes() {
 
-const linkAction= process.env.REACT_APP_SERVER_URL + '/api/new-note';
+  const {user}=useContext(NoteContext);
+
+  const userId=user.user?._id;
+
+ 
+  const linkAction= process.env.REACT_APP_SERVER_URL + '/api/new-note/'+ userId;
+
+
+
+
   return (
 
       <Box

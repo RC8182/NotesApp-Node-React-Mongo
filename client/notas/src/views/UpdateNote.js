@@ -11,7 +11,7 @@ import {
     VStack,
   } from '@chakra-ui/react';
 
-  import React, { useContext } from 'react';
+  import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { NoteContext } from '../components/Context/NotesProvider';
 
@@ -21,19 +21,18 @@ import { NoteContext } from '../components/Context/NotesProvider';
 
 
     
-    const {noteId, getApiNoteByID} = useContext(NoteContext);
-    const {id}= useParams();
+    const {noteByNoteId, getNoteByNoteID, isAuthUser} = useContext(NoteContext);
+    const noteId= useParams();
+    const id=noteId.noteId;
 
-    getApiNoteByID(id); 
-    console.log();
+    useEffect(() => {getNoteByNoteID(id);
+      isAuthUser()}, []);
 
-    const title= noteId?.title;
-    const description=noteId?.description;
+    const title= noteByNoteId?.title;
+    const description= noteByNoteId?.description;
 
 
-    const update= process.env.REACT_APP_SERVER_URL +'/api/update/' + id +'?_method=PUT';
-
-  
+const update= process.env.REACT_APP_SERVER_URL +'/api/update/' + id +'?_method=PUT';
     return (
   
         <Box
